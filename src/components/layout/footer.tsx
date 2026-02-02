@@ -77,7 +77,7 @@ const Footer = () => {
                     </div>
 
                     <div className="flex flex-3/5 flex-col gap-30">
-                        <div className="grid gap-10 lg:grid-cols-3 lg:gap-0">
+                        <div className="grid gap-10 lg:grid-cols-3 lg:gap-4">
                             {footerLinks.map((section) => (
                                 <div key={section.title} className="space-y-6">
                                     <h3 className="font-montserrat text-lg font-semibold lg:text-2xl">
@@ -85,7 +85,7 @@ const Footer = () => {
                                     </h3>
                                     <ul className="space-y-3">
                                         {section.links.map((link) => (
-                                            <li key={link.label}>
+                                            <li key={link.label} className="whitespace-nowrap">
                                                 <Link to={link.to} className="lg:text-xl">
                                                     {link.label}
                                                 </Link>

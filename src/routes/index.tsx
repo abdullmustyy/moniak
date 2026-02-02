@@ -13,55 +13,59 @@ export const Route = createFileRoute("/")({ component: App })
 function App() {
     return (
         <main>
-            <header className="w-contain flex flex-col pt-6 pb-10 md:pt-10 md:pb-15">
-                <div className="relative flex items-end justify-center">
-                    <p className="absolute left-0 hidden xl:block">
-                        We would love to work
-                        <br /> with you on your project
-                    </p>
-                    <h1 className="text-center text-3xl leading-[130%] sm:text-4xl md:text-5xl lg:text-6xl xl:text-[5rem]">
-                        CONSTRUCTION
-                        <br /> EXPLOITS AT IT'S
-                        <br /> FINEST
-                    </h1>
-                    <p className="absolute right-0 hidden text-right xl:block">
-                        We create places that deserve to
-                        <br /> be lived with the highest quality
-                        <br /> materials and attention to detail
-                    </p>
-                </div>
+            <header className="relative bg-[url('/images/home-hero-vector.svg')] bg-size-[100%_auto] bg-bottom bg-no-repeat pt-6 pb-10 md:pt-10 md:pb-15">
+                <div className="w-contain flex flex-col">
+                    <div className="relative flex items-end justify-center">
+                        <p className="absolute left-0 hidden xl:block">
+                            We would love to work
+                            <br /> with you on your project
+                        </p>
+                        <h1 className="text-center text-3xl leading-[130%] sm:text-4xl md:text-5xl lg:text-6xl xl:text-[5rem]">
+                            CONSTRUCTION
+                            <br /> EXPLOITS AT IT'S
+                            <br /> FINEST
+                        </h1>
+                        <p className="absolute right-0 hidden text-right xl:block">
+                            We create places that deserve to
+                            <br /> be lived with the highest quality
+                            <br /> materials and attention to detail
+                        </p>
+                    </div>
 
-                <div className="relative mx-auto mt-2 flex w-fit items-center lg:-mt-7">
-                    <img
-                        src="/images/construction-rails.svg"
-                        alt=""
-                        className="max-w-70 sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-none"
-                    />
+                    <div className="relative mx-auto mt-2 flex w-fit items-center lg:-mt-7">
+                        <img
+                            src="/images/construction-rails.svg"
+                            alt=""
+                            className="max-w-70 rounded-full border-2 border-dashed border-white p-0.5 sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-none"
+                        />
+                        <Link
+                            to="/"
+                            className={cn(
+                                buttonVariants(),
+                                "absolute right-0 size-14 translate-x-1/2 rounded-full shadow-[0px_3.52px_3.52px_0px_#00000040] sm:size-18 md:size-20 lg:size-25",
+                            )}
+                        >
+                            <ArrowUpRight className="size-6 sm:size-7 md:size-8 lg:size-10" />
+                        </Link>
+                    </div>
+
+                    <p className="mt-6 text-center text-sm lg:hidden">
+                        We create places that deserve to be lived with the
+                        <br /> highest quality materials and attention to detail
+                    </p>
+
                     <Link
                         to="/"
                         className={cn(
-                            buttonVariants(),
-                            "absolute right-0 size-14 translate-x-1/2 rounded-full sm:size-18 md:size-20 lg:size-25",
+                            buttonVariants({ variant: "secondary" }),
+                            "mx-auto mt-8 h-auto w-fit rounded-lg px-6! py-3! text-sm font-semibold sm:px-8! sm:py-4! sm:text-base md:mt-10 md:px-10! md:py-5! md:text-lg",
                         )}
                     >
-                        <ArrowUpRight className="size-6 sm:size-7 md:size-8 lg:size-10" />
+                        Get a quote <ArrowRight className="" />
                     </Link>
+
+                    <ScrollDownBadge className="absolute right-10 bottom-10 hidden *:bg-inherit lg:block" />
                 </div>
-
-                <p className="mt-6 text-center text-sm lg:hidden">
-                    We create places that deserve to be lived with the
-                    <br /> highest quality materials and attention to detail
-                </p>
-
-                <Link
-                    to="/"
-                    className={cn(
-                        buttonVariants({ variant: "secondary" }),
-                        "mx-auto mt-8 h-auto w-fit rounded-lg px-6! py-3! text-sm font-semibold sm:px-8! sm:py-4! sm:text-base md:mt-10 md:px-10! md:py-5! md:text-lg",
-                    )}
-                >
-                    Get a quote <ArrowRight className="" />
-                </Link>
             </header>
 
             {/* Our Commitment to Sustainability. */}
@@ -104,14 +108,14 @@ function App() {
                 </div>
 
                 <p className="mt-10 text-xl">
-                    By choosing Moniak, you're not just selecting a construction partner - you're choosing a team
-                    <br className="md-br" />
-                    committed to building a better and more sustainable future. Join us in creating structures that
-                    stand
-                    <br className="md-br" /> the test of time while preserving our planet for generations to come.
+                    By choosing Moniak, you're not just selecting a construction
+                    <br className="md-br" /> partner - you're choosing a team committed to building a
+                    <br className="md-br" /> better and more sustainable future. Join us in creating
+                    <br className="md-br" /> structures that stand the test of time while preserving our
+                    <br className="md-br" /> planet for generations to come.
                 </p>
 
-                <div className="mt-15 flex items-end justify-center lg:justify-between">
+                <div className="mt-10 flex items-end justify-center lg:mt-0 lg:justify-between">
                     <Link
                         to="/"
                         className={cn(
@@ -153,7 +157,7 @@ function App() {
             </section>
 
             {/* RECENT PROJECTS */}
-            <section className="bg-primary py-15">
+            <section className="bg-[url(/images/recent-project-vector.svg),linear-gradient(var(--primary),var(--primary))] bg-right bg-no-repeat py-15">
                 <div className="w-contain">
                     <h3 className="mb-15 text-center text-3xl text-white/50 text-outline lg:mb-8 lg:text-left lg:text-[2.8125rem]">
                         RECENT
