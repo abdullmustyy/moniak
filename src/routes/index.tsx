@@ -1,0 +1,210 @@
+import ScrollDownBadge from "@/components/features/scroll-down-badge"
+import { buttonVariants } from "@/components/ui/button"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import ArrowRight from "@/components/ui/icons/arrow-right"
+import ArrowUpRight from "@/components/ui/icons/arrow-up-right"
+import { keyFeatures, recentProjects, services, trustedBy } from "@/constants"
+import { cn } from "@/lib/utils"
+import { createFileRoute, Link } from "@tanstack/react-router"
+import Autoplay from "embla-carousel-autoplay"
+
+export const Route = createFileRoute("/")({ component: App })
+
+function App() {
+    return (
+        <main>
+            <header className="w-contain flex flex-col pt-6 pb-10 md:pt-10 md:pb-15">
+                <div className="relative flex items-end justify-center">
+                    <p className="absolute left-0 hidden xl:block">
+                        We would love to work
+                        <br /> with you on your project
+                    </p>
+                    <h1 className="text-center text-3xl leading-[130%] sm:text-4xl md:text-5xl lg:text-6xl xl:text-[5rem]">
+                        CONSTRUCTION
+                        <br /> EXPLOITS AT IT'S
+                        <br /> FINEST
+                    </h1>
+                    <p className="absolute right-0 hidden text-right xl:block">
+                        We create places that deserve to
+                        <br /> be lived with the highest quality
+                        <br /> materials and attention to detail
+                    </p>
+                </div>
+
+                <div className="relative mx-auto mt-2 flex w-fit items-center lg:-mt-7">
+                    <img
+                        src="/images/construction-rails.svg"
+                        alt=""
+                        className="max-w-70 sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-none"
+                    />
+                    <Link
+                        to="/"
+                        className={cn(
+                            buttonVariants(),
+                            "absolute right-0 size-14 translate-x-1/2 rounded-full sm:size-18 md:size-20 lg:size-25",
+                        )}
+                    >
+                        <ArrowUpRight className="size-6 sm:size-7 md:size-8 lg:size-10" />
+                    </Link>
+                </div>
+
+                <p className="mt-6 text-center text-sm lg:hidden">
+                    We create places that deserve to be lived with the
+                    <br /> highest quality materials and attention to detail
+                </p>
+
+                <Link
+                    to="/"
+                    className={cn(
+                        buttonVariants({ variant: "secondary" }),
+                        "mx-auto mt-8 h-auto w-fit rounded-lg px-6! py-3! text-sm font-semibold sm:px-8! sm:py-4! sm:text-base md:mt-10 md:px-10! md:py-5! md:text-lg",
+                    )}
+                >
+                    Get a quote <ArrowRight className="" />
+                </Link>
+            </header>
+
+            {/* Our Commitment to Sustainability. */}
+            <section className="w-contain py-15">
+                <div className="grid gap-8 lg:grid-cols-2">
+                    <div className="space-y-10">
+                        <div className="space-y-6">
+                            <h2 className="text-center text-3xl text-white/50 text-outline lg:text-left lg:text-[2.8125rem]">
+                                Our Commitment to Sustainability.
+                            </h2>
+                            <p className="text-center text-xl lg:text-left">
+                                At Moniak, we take pride in our commitment to sustainable practices and environmental
+                                responsibility. As a forward-thinking company, we understand the importance of
+                                minimizing our ecological footprint and contributing to a greener future. Our
+                                sustainable initiatives encompass every aspect of our operations, from eco-friendly
+                                building materials to energy-efficient construction practices.
+                            </p>
+                        </div>
+
+                        <div className="space-y-6">
+                            <p className="text-2xl font-extrabold text-primary-light">Key Features:</p>
+                            <ul className="flex flex-col gap-2 text-lg">
+                                {keyFeatures.map((feature) => (
+                                    <li key={feature.title} className="flex items-start gap-1">
+                                        <img src="/icons/circle-check.svg" alt="" className="mt-1 size-5 shrink-0" />
+                                        <span>
+                                            <span className="font-bold text-primary-light">{feature.title}</span>{" "}
+                                            {feature.description}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="relative row-start-1 flex items-end lg:row-start-auto">
+                        <img src="/images/engineers-working.svg" alt="" className="size-full" />
+                        <ScrollDownBadge className="absolute right-0 block lg:hidden" />
+                    </div>
+                </div>
+
+                <p className="mt-10 text-xl">
+                    By choosing Moniak, you're not just selecting a construction partner - you're choosing a team
+                    <br className="md-br" />
+                    committed to building a better and more sustainable future. Join us in creating structures that
+                    stand
+                    <br className="md-br" /> the test of time while preserving our planet for generations to come.
+                </p>
+
+                <div className="mt-15 flex items-end justify-center lg:justify-between">
+                    <Link
+                        to="/"
+                        className={cn(
+                            buttonVariants({ variant: "secondary" }),
+                            "h-auto rounded-lg px-10 font-semibold lg:py-5 lg:text-lg",
+                        )}
+                    >
+                        Request a demo
+                    </Link>
+                    <ScrollDownBadge className="hidden lg:block" />
+                </div>
+            </section>
+
+            {/* Services */}
+            <section className="w-contain py-15">
+                <div className="grid">
+                    <div className="mb-6 flex flex-col items-center gap-6 border-primary lg:mb-0 lg:flex-row lg:gap-0 lg:border-2">
+                        <div className="border-y-2 border-r-2 border-l-2 border-primary p-4 lg:border-y-0 lg:border-l-0 lg:p-8">
+                            <h2 className="text-xl text-white/50 text-outline lg:text-[2.8125rem]">Services</h2>
+                        </div>
+                        <div className="border-2 border-primary p-4 lg:border-0 lg:p-8">
+                            <p className="text-lg">
+                                Welcome to Moniak, your partner in construction excellence. From groundbreaking designs
+                                to meticulous renovations, we offer a comprehensive range of services
+                            </p>
+                        </div>
+                    </div>
+                    {services.map(({ label, to }, index) => (
+                        <Link key={label + index} to={to}>
+                            <div className="flex items-center justify-between border-x-2 border-b-2 border-primary p-4 first:border-t-2 lg:p-8 lg:first:border-t-0">
+                                <h2 className="text-lg lg:text-6xl">{label}</h2>
+                                <div className="flex size-7.5 shrink-0 items-center justify-center rounded-full bg-primary transition-colors hover:bg-primary/90 lg:size-25">
+                                    <ArrowRight className="size-3.5 lg:size-10" />
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </section>
+
+            {/* RECENT PROJECTS */}
+            <section className="bg-primary py-15">
+                <div className="w-contain">
+                    <h3 className="mb-15 text-center text-3xl text-white/50 text-outline lg:mb-8 lg:text-left lg:text-[2.8125rem]">
+                        RECENT
+                        <br className="lg:hidden" /> PROJECTS
+                    </h3>
+
+                    <Carousel
+                        opts={{
+                            align: "start",
+                            loop: true,
+                        }}
+                        plugins={[
+                            Autoplay({
+                                delay: 5000,
+                                stopOnInteraction: false,
+                                stopOnMouseEnter: true,
+                            }),
+                        ]}
+                        className="w-full"
+                    >
+                        <CarouselContent>
+                            {recentProjects.map((image, index) => (
+                                <CarouselItem key={index} className="basis-1/2 md:basis-1/3 lg:basis-1/4">
+                                    <img
+                                        src={image}
+                                        alt={`Recent project ${index + 1}`}
+                                        className="aspect-square size-full"
+                                    />
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious className="left-4 bg-primary" />
+                        <CarouselNext className="right-4 bg-primary" />
+                    </Carousel>
+                </div>
+            </section>
+
+            {/* Trusted By */}
+            <section className="w-contain py-15">
+                <h3 className="mb-8 text-3xl text-white/50 text-outline lg:text-[2.8125rem]">Trusted By</h3>
+
+                <div className="flex items-center gap-(--marquee-gap) overflow-hidden [--marquee-gap:calc(var(--spacing)*6)] lg:mask-x-from-90% lg:[--marquee-gap:calc(var(--spacing)*10)] hover:[&>:is(div)]:paused">
+                    {Array.from({ length: 2 }, (_, i) => (
+                        <div key={i} className="flex shrink-0 animate-marquee items-center gap-(--marquee-gap)">
+                            {trustedBy.map((image) => (
+                                <img key={image} src={image} alt="" className="h-11 shrink-0 lg:h-auto" />
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            </section>
+        </main>
+    )
+}
