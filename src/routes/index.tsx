@@ -1,6 +1,15 @@
+import QuoteForm from "@/components/features/forms/quote-form"
 import ScrollDownBadge from "@/components/features/scroll-down-badge"
-import { buttonVariants } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
 import ArrowRight from "@/components/ui/icons/arrow-right"
 import ArrowUpRight from "@/components/ui/icons/arrow-up-right"
 import { keyFeatures, recentProjects, services, trustedBy } from "@/constants"
@@ -13,14 +22,14 @@ export const Route = createFileRoute("/")({ component: App })
 function App() {
     return (
         <main>
-            <header className="relative bg-[url('/images/home-hero-vector.svg')] bg-size-[100%_auto] bg-bottom bg-no-repeat pt-6 pb-10 md:pt-10 md:pb-15">
+            <header className="relative bg-[url(/images/home-hero-mobile-vector.svg)] bg-size-[100%_auto] bg-bottom bg-no-repeat pt-6 pb-15 md:pt-10 lg:bg-[url(/images/home-hero-vector.svg)]">
                 <div className="w-contain flex flex-col">
                     <div className="relative flex items-end justify-center">
                         <p className="absolute left-0 hidden xl:block">
                             We would love to work
                             <br /> with you on your project
                         </p>
-                        <h1 className="text-center text-3xl leading-[130%] sm:text-4xl md:text-5xl lg:text-6xl xl:text-[5rem]">
+                        <h1 className="text-center text-4xl break-all lg:text-6xl lg:leading-[130%] lg:break-normal xl:text-[5rem]">
                             CONSTRUCTION
                             <br /> EXPLOITS AT IT'S
                             <br /> FINEST
@@ -54,15 +63,51 @@ function App() {
                         <br /> highest quality materials and attention to detail
                     </p>
 
-                    <Link
-                        to="/"
-                        className={cn(
-                            buttonVariants({ variant: "secondary" }),
-                            "mx-auto mt-8 h-auto w-fit rounded-lg px-6! py-3! text-sm font-semibold sm:px-8! sm:py-4! sm:text-base md:mt-10 md:px-10! md:py-5! md:text-lg",
-                        )}
-                    >
-                        Get a quote <ArrowRight className="" />
-                    </Link>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button
+                                variant="secondary"
+                                className="mx-auto mt-8 h-auto w-fit rounded-lg px-6! py-3! text-sm font-semibold sm:px-8! sm:py-4! sm:text-base md:mt-10 md:px-10! md:py-5! md:text-lg"
+                            >
+                                Get a quote <ArrowRight className="size-3" />
+                            </Button>
+                        </DialogTrigger>
+
+                        <DialogContent className="max-h-dvh max-w-full items-start overflow-auto rounded-b-none bg-[#FDFEFE] text-[#171717] sm:max-w-full md:rounded-t-[82px] lg:max-h-[95%] lg:grid-cols-2 lg:place-content-center lg:gap-0 lg:overflow-visible lg:px-20 lg:pt-20 lg:pb-40 lg:**:data-[slot='dialog-close']:hidden">
+                            <DialogHeader className="sr-only">
+                                <DialogTitle>Start Your Project with Us</DialogTitle>
+                                <DialogDescription>
+                                    Whatever your goal or project size, we will handle it using standards-compliant
+                                    methods. We aim for your 100% satisfaction.
+                                </DialogDescription>
+                            </DialogHeader>
+
+                            <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-0 lg:pt-10">
+                                <div className="space-y-4 lg:space-y-6">
+                                    <h4 className="text-center text-2xl lg:text-left lg:text-3xl">
+                                        Start Your
+                                        <br className="md-br" /> Project With Us
+                                    </h4>
+                                    <p className="text-sm">
+                                        Whatever your goal or project size, we will
+                                        <br className="md-br" /> handle it using standards-compliant
+                                        <br className="md-br" />
+                                        methods. We aim for your 100% satisfaction.
+                                    </p>
+                                </div>
+                                <img src="/images/lilac-dotted-arrow.svg" alt="" className="hidden lg:block" />
+                                <img src="/images/lilac-dotted-arrow-mobile.svg" alt="" className="lg:hidden" />
+                            </div>
+
+                            <div className="space-y-6 lg:px-8">
+                                <h4 className="text-lg lg:text-3xl">
+                                    Fill out the form and we&apos;ll be in touch as soon as possible.
+                                </h4>
+
+                                <QuoteForm />
+                            </div>
+                        </DialogContent>
+                    </Dialog>
 
                     <ScrollDownBadge className="absolute right-10 bottom-10 hidden *:bg-inherit lg:block" />
                 </div>
@@ -73,10 +118,10 @@ function App() {
                 <div className="grid gap-8 lg:grid-cols-2">
                     <div className="space-y-10">
                         <div className="space-y-6">
-                            <h2 className="text-center text-3xl text-white/50 text-outline lg:text-left lg:text-[2.8125rem]">
+                            <h2 className="text-center text-2xl text-white/50 text-outline lg:text-left lg:text-[2.8125rem]">
                                 Our Commitment to Sustainability.
                             </h2>
-                            <p className="text-center text-xl lg:text-left">
+                            <p className="text-center text-sm lg:text-left lg:text-xl">
                                 At Moniak, we take pride in our commitment to sustainable practices and environmental
                                 responsibility. As a forward-thinking company, we understand the importance of
                                 minimizing our ecological footprint and contributing to a greener future. Our
@@ -85,9 +130,9 @@ function App() {
                             </p>
                         </div>
 
-                        <div className="space-y-6">
-                            <p className="text-2xl font-extrabold text-primary-light">Key Features:</p>
-                            <ul className="flex flex-col gap-2 text-lg">
+                        <div className="space-y-4 lg:space-y-6">
+                            <p className="font-extrabold text-primary-light lg:text-2xl">Key Features:</p>
+                            <ul className="flex flex-col gap-2 text-sm lg:text-lg">
                                 {keyFeatures.map((feature) => (
                                     <li key={feature.title} className="flex items-start gap-1">
                                         <img src="/icons/circle-check.svg" alt="" className="mt-1 size-5 shrink-0" />
@@ -107,7 +152,7 @@ function App() {
                     </div>
                 </div>
 
-                <p className="mt-10 text-xl">
+                <p className="mt-10 text-sm lg:text-xl">
                     By choosing Moniak, you're not just selecting a construction
                     <br className="md-br" /> partner - you're choosing a team committed to building a
                     <br className="md-br" /> better and more sustainable future. Join us in creating
@@ -137,7 +182,7 @@ function App() {
                             <h2 className="text-xl text-white/50 text-outline lg:text-[2.8125rem]">Services</h2>
                         </div>
                         <div className="border-2 border-primary p-4 lg:border-0 lg:p-8">
-                            <p className="text-lg">
+                            <p className="text-sm lg:text-lg">
                                 Welcome to Moniak, your partner in construction excellence. From groundbreaking designs
                                 to meticulous renovations, we offer a comprehensive range of services
                             </p>
@@ -157,7 +202,7 @@ function App() {
             </section>
 
             {/* RECENT PROJECTS */}
-            <section className="bg-[url(/images/recent-project-vector.svg),linear-gradient(var(--primary),var(--primary))] bg-right bg-no-repeat py-15">
+            <section className="bg-[url(/images/recent-project-mobile-vector.svg),linear-gradient(var(--primary),var(--primary))] bg-position-[top_right] bg-no-repeat py-15 lg:bg-[url(/images/recent-project-vector.svg),linear-gradient(var(--primary),var(--primary))]">
                 <div className="w-contain">
                     <h3 className="mb-15 text-center text-3xl text-white/50 text-outline lg:mb-8 lg:text-left lg:text-[2.8125rem]">
                         RECENT

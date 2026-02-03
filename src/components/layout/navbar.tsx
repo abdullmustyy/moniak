@@ -20,7 +20,7 @@ const Navbar = () => {
 
     return (
         <nav className="relative bg-[#D9D9D9] lg:bg-inherit">
-            <div className="w-contain flex flex-col py-4">
+            <div className="w-contain flex flex-col py-2 lg:py-4">
                 <div className="flex items-center justify-between">
                     <Link to="/">
                         <img src="/images/logo.svg" alt="" />
@@ -85,7 +85,7 @@ const Navbar = () => {
                                 <Link
                                     to={link.to}
                                     className={cn(
-                                        "font-michroma text-background transition-all duration-300 hover:text-[#20A91E]",
+                                        "font-michroma text-sm text-background transition-all duration-300 hover:text-[#20A91E]",
                                         {
                                             "text-[#20A91E]": pathname === link.to,
                                         },

@@ -5,7 +5,7 @@ const ScrollDownBadge = ({ className, ...props }: React.ComponentProps<"div">) =
     return (
         <div
             className={cn(
-                "rounded-full bg-linear-to-b from-[#214517] to-[rgba(105,117,102,0.2)] p-[0.88px] shadow-[0px_3.52px_3.52px_0px_#00000040]",
+                "size-fit rounded-full bg-linear-to-b from-[#214517] to-[rgba(105,117,102,0.2)] p-[0.88px] shadow-[0px_3.52px_3.52px_0px_#00000040]",
                 className,
             )}
             {...props}
