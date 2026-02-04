@@ -92,16 +92,20 @@ export const footerLinks = [
                 to: "/",
             },
             {
+                label: "About Us",
+                to: "/about-us",
+            },
+            {
                 label: "Services",
-                to: "/",
+                to: "/services",
             },
             {
                 label: "Projects",
-                to: "/",
+                to: "/projects",
             },
             {
                 label: "Contact Us",
-                to: "/",
+                to: "/contact-us",
             },
         ],
     },
