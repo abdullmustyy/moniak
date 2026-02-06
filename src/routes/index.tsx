@@ -13,11 +13,22 @@ import {
 import ArrowRight from "@/components/ui/icons/arrow-right"
 import ArrowUpRight from "@/components/ui/icons/arrow-up-right"
 import { keyFeatures, recentProjects, services, trustedBy } from "@/constants"
+import { createSeoTags } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 import { createFileRoute, Link } from "@tanstack/react-router"
 import Autoplay from "embla-carousel-autoplay"
 
-export const Route = createFileRoute("/")({ component: App })
+export const Route = createFileRoute("/")({
+    head: () => ({
+        meta: createSeoTags({
+            title: "MoniAK | Construction & Engineering Excellence",
+            description:
+                "MoniAK is a full-service construction and engineering company specializing in civil infrastructure, building construction, and project management in Nigeria.",
+            path: "/",
+        }),
+    }),
+    component: App,
+})
 
 function App() {
     return (
@@ -127,8 +138,8 @@ function App() {
                         <div className="space-y-4 lg:space-y-6">
                             <p className="font-extrabold text-primary-light lg:text-2xl">Key Features:</p>
                             <ul className="flex flex-col gap-2 text-sm lg:text-lg">
-                                {keyFeatures.map((feature) => (
-                                    <li key={feature.title} className="flex items-start gap-1">
+                                {keyFeatures.map((feature, index) => (
+                                    <li key={feature.title + index} className="flex items-start gap-1">
                                         <img src="/icons/circle-check.svg" alt="" className="mt-1 size-5 shrink-0" />
                                         <span>
                                             <span className="font-bold text-primary-light">{feature.title}</span>{" "}
@@ -219,7 +230,7 @@ function App() {
                     >
                         <CarouselContent>
                             {recentProjects.map((image, index) => (
-                                <CarouselItem key={index} className="basis-1/2 md:basis-1/3 lg:basis-1/4">
+                                <CarouselItem key={image + index} className="basis-1/2 md:basis-1/3 lg:basis-1/4">
                                     <img
                                         src={image}
                                         alt={`Recent project ${index + 1}`}
@@ -241,8 +252,8 @@ function App() {
                 <div className="flex items-center gap-(--marquee-gap) overflow-hidden [--marquee-gap:calc(var(--spacing)*6)] lg:mask-x-from-90% lg:[--marquee-gap:calc(var(--spacing)*10)] hover:[&>:is(div)]:paused">
                     {Array.from({ length: 2 }, (_, i) => (
                         <div key={i} className="flex shrink-0 animate-marquee items-center gap-(--marquee-gap)">
-                            {trustedBy.map((image) => (
-                                <img key={image} src={image} alt="" className="h-11 shrink-0 lg:h-auto" />
+                            {trustedBy.map((image, index) => (
+                                <img key={image + index} src={image} alt="" className="h-11 shrink-0 lg:h-auto" />
                             ))}
                         </div>
                     ))}

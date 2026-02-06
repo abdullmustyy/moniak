@@ -2,11 +2,20 @@ import ScrollDownBadge from "@/components/features/scroll-down-badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { missionAndVision, stats, team, whatWeOffer } from "@/constants/about-us"
+import { createSeoTags } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 import { createFileRoute, Link } from "@tanstack/react-router"
 import { ArrowUpLeft } from "lucide-react"
 
 export const Route = createFileRoute("/about-us")({
+    head: () => ({
+        meta: createSeoTags({
+            title: "About Us",
+            description:
+                "Learn about MoniAK's mission, vision, and experienced team. Over 7 years of construction support experience across Nigeria.",
+            path: "/about-us",
+        }),
+    }),
     component: RouteComponent,
 })
 
@@ -52,7 +61,7 @@ function RouteComponent() {
                         <h5 className="lg:text-[2.8125rem]">What we offer</h5>
                         <ul className="flex flex-col gap-2 text-sm lg:text-lg">
                             {whatWeOffer.map((item, index) => (
-                                <li key={index} className="flex items-start gap-2">
+                                <li key={item + index} className="flex items-start gap-2">
                                     <img src="/icons/circle-check.svg" alt="" className="mt-1 size-4 lg:size-auto" />
                                     {item}
                                 </li>
@@ -76,7 +85,7 @@ function RouteComponent() {
 
                 <div className="grid gap-5 lg:grid-cols-2">
                     {missionAndVision.map((item, index) => (
-                        <div key={index} className="flex flex-col items-center gap-5 bg-primary px-4 py-8">
+                        <div key={item.title + index} className="flex flex-col items-center gap-5 bg-primary px-4 py-8">
                             <h5 className="text-2xl lg:text-[2.8125rem]">{item.title}</h5>
                             <p className="text-center text-sm lg:text-lg">{item.description}</p>
                             <img src={item.image} alt="" className="lg:mt-5" />
@@ -89,7 +98,7 @@ function RouteComponent() {
             <section className="bg-[linear-gradient(90deg,rgba(0,0,0,0.68)_1.63%,rgba(106,106,106,0)_48.41%,rgba(0,0,0,0.68)_100%),linear-gradient(0deg,#114B21,#114B21)] py-15 lg:bg-[linear-gradient(90deg,rgba(0,0,0,0.68)_1.35%,rgba(0,0,0,0)_48.72%,rgba(0,0,0,0.68)_100%),linear-gradient(0deg,#114B21,#114B21)]">
                 <div className="w-contain grid grid-cols-2 flex-wrap justify-center gap-10 lg:flex">
                     {stats.map((stat, index) => (
-                        <div key={index} className="flex items-center gap-2">
+                        <div key={stat.title + index} className="flex items-center gap-2">
                             <img src={stat.image} alt="" className="size-10 shrink-0 lg:size-auto" />
                             <div className="flex flex-col items-center">
                                 <h5 className="text-lg lg:text-[2.8125rem]">{stat.value}</h5>
@@ -121,7 +130,7 @@ function RouteComponent() {
                 >
                     <CarouselContent>
                         {team.map((member, index) => (
-                            <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3">
+                            <CarouselItem key={member.name + index} className="basis-full md:basis-1/2 lg:basis-1/3">
                                 <div className="flex flex-col overflow-hidden rounded-[10px] bg-[#D4D4D440]">
                                     <img
                                         src={member.image}

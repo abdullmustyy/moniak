@@ -2,6 +2,7 @@ import { TanStackDevtools } from "@tanstack/react-devtools"
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
 
+import SmoothScroll from "@/components/features/smooth-scroll"
 import Footer from "@/components/layout/footer"
 import Navbar from "@/components/layout/navbar"
 import appCss from "../styles.css?url"
@@ -9,27 +10,29 @@ import appCss from "../styles.css?url"
 export const Route = createRootRoute({
     head: () => ({
         meta: [
+            { charSet: "utf-8" },
+            { name: "viewport", content: "width=device-width, initial-scale=1" },
+            { title: "MoniAK | Construction & Engineering Excellence" },
             {
-                charSet: "utf-8",
+                name: "description",
+                content:
+                    "MoniAK is a full-service construction and engineering company specializing in civil infrastructure, building construction, and project management in Nigeria.",
             },
-            {
-                name: "viewport",
-                content: "width=device-width, initial-scale=1",
-            },
-            {
-                title: "Moniak",
-            },
+            { name: "theme-color", content: "#114B21" },
+
+            // Open Graph defaults
+            { property: "og:site_name", content: "MoniAK" },
+            { property: "og:type", content: "website" },
+            { property: "og:locale", content: "en_NG" },
+
+            // Twitter defaults
+            { name: "twitter:card", content: "summary_large_image" },
         ],
         links: [
-            {
-                rel: "stylesheet",
-                href: appCss,
-            },
-            {
-                rel: "icon",
-                type: "image/svg+xml",
-                href: "/favicon.svg",
-            },
+            { rel: "stylesheet", href: appCss },
+            { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+            { rel: "manifest", href: "/manifest.json" },
+            { rel: "apple-touch-icon", href: "/favicon.svg" },
         ],
     }),
 
@@ -52,6 +55,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 <Navbar />
                 {children}
                 <Footer />
+                <SmoothScroll />
                 <TanStackDevtools
                     config={{
                         position: "bottom-right",

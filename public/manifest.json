@@ -1,6 +1,7 @@
 {
-    "short_name": "Moniak",
-    "name": "Moniak",
+    "short_name": "MoniAK",
+    "name": "MoniAK Construction & Engineering",
+    "description": "Full-service construction and engineering company specializing in civil infrastructure, building construction, and project management in Nigeria.",
     "icons": [
         {
             "src": "favicon.svg",
@@ -10,6 +11,6 @@
     ],
     "start_url": ".",
     "display": "standalone",
-    "theme_color": "#000000",
-    "background_color": "#ffffff"
+    "theme_color": "#114B21",
+    "background_color": "#0D0D0D"
 }

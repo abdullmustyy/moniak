@@ -1,9 +1,20 @@
 import ScrollDownBadge from "@/components/features/scroll-down-badge"
 import { ourServices } from "@/constants/service"
+import { createSeoTags } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 import { createFileRoute } from "@tanstack/react-router"
 
-export const Route = createFileRoute("/services")({ component: ServicesPage })
+export const Route = createFileRoute("/services")({
+    head: () => ({
+        meta: createSeoTags({
+            title: "Our Services",
+            description:
+                "Explore MoniAK's comprehensive construction services including civil infrastructure, building construction, renovations, and project management.",
+            path: "/services",
+        }),
+    }),
+    component: ServicesPage,
+})
 
 function ServicesPage() {
     return (
@@ -39,11 +50,11 @@ function ServicesPage() {
                                 <p className="text-xs lg:text-lg">{service.description}</p>
                             </div>
 
-                            {service.images.map((image, imgIndex) => (
+                            {service.images.map((image, index) => (
                                 <img
-                                    key={imgIndex}
+                                    key={image + index}
                                     src={image}
-                                    alt={service.title + imgIndex}
+                                    alt={service.title + index}
                                     className="hidden lg:block"
                                 />
                             ))}

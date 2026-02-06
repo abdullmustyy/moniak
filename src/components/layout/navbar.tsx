@@ -27,8 +27,8 @@ const Navbar = () => {
                     </Link>
 
                     <ul className="absolute left-1/2 hidden -translate-x-1/2 gap-10 lg:flex">
-                        {navLinks.map((link) => (
-                            <li key={link.label} className="shrink-0">
+                        {navLinks.map((link, index) => (
+                            <li key={link.label + index} className="shrink-0">
                                 <Link
                                     to={link.to}
                                     className={cn("font-michroma transition-colors hover:text-[#20A91E]")}

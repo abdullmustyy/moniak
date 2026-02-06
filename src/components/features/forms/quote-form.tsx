@@ -96,8 +96,8 @@ const QuoteForm = () => {
                                 <SelectValue placeholder="Budget" />
                             </SelectTrigger>
                             <SelectContent>
-                                {budgetOptions.map((option) => (
-                                    <SelectItem key={option.value} value={option.value}>
+                                {budgetOptions.map((option, index) => (
+                                    <SelectItem key={option.value + index} value={option.value}>
                                         {option.label}
                                     </SelectItem>
                                 ))}

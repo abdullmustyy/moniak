@@ -1,10 +1,19 @@
 import { buttonVariants } from "@/components/ui/button"
 import ArrowRight from "@/components/ui/icons/arrow-right"
 import { ourProjects } from "@/constants/projects"
+import { createSeoTags } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 import { createFileRoute, Link } from "@tanstack/react-router"
 
 export const Route = createFileRoute("/projects/")({
+    head: () => ({
+        meta: createSeoTags({
+            title: "Our Projects",
+            description:
+                "View MoniAK's portfolio of completed construction projects. From commercial buildings to residential developments, see our commitment to quality.",
+            path: "/projects",
+        }),
+    }),
     component: ProjectsPage,
 })
 
@@ -26,7 +35,7 @@ function ProjectsPage() {
             <section className="w-contain grid gap-8 py-10 lg:grid-cols-2 lg:gap-15">
                 {ourProjects.map((project, index) => (
                     <Link
-                        key={index}
+                        key={project.slug + index}
                         to="/projects/$slug"
                         params={{ slug: project.slug }}
                         className="relative aspect-square overflow-hidden rounded-2xl"

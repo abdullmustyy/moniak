@@ -32,14 +32,14 @@ const Footer = () => {
 
                     <div className="flex flex-3/5 flex-col gap-15 lg:gap-30">
                         <div className="grid gap-8 lg:grid-cols-3 lg:gap-4">
-                            {footerLinks.map((section) => (
-                                <div key={section.title} className="space-y-4 lg:space-y-6">
+                            {footerLinks.map((section, index) => (
+                                <div key={section.title + index} className="space-y-4 lg:space-y-6">
                                     <h3 className="font-montserrat text-sm font-semibold lg:text-2xl">
                                         {section.title}
                                     </h3>
                                     <ul className="space-y-2 lg:space-y-3">
-                                        {section.links.map((link) => (
-                                            <li key={link.label} className="whitespace-nowrap">
+                                        {section.links.map((link, index) => (
+                                            <li key={link.label + index} className="whitespace-nowrap">
                                                 <Link to={link.to} className="text-sm lg:text-xl">
                                                     {link.label}
                                                 </Link>
@@ -53,8 +53,8 @@ const Footer = () => {
                         <div className="flex items-center justify-between">
                             <p className="font-michroma text-xs lg:text-xl">Connect with us on social media</p>
                             <div className="flex gap-3 lg:gap-8">
-                                {socialLinks.map((link) => (
-                                    <Link key={link.to} to={link.to}>
+                                {socialLinks.map((link, index) => (
+                                    <Link key={link.to + index} to={link.to}>
                                         <img src={link.icon} alt="Social Icon" className="size-4 lg:size-auto" />
                                     </Link>
                                 ))}
