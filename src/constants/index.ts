@@ -4,6 +4,10 @@ export const navLinks = [
         to: "/",
     },
     {
+        label: "ABOUT US",
+        to: "/about-us",
+    },
+    {
         label: "SERVICES",
         to: "/services",
     },

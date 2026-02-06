@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({ component: App })
 function App() {
     return (
         <main>
-            <header className="relative bg-[url(/images/home-hero-mobile-vector.svg)] bg-size-[100%_auto] bg-bottom bg-no-repeat pt-6 pb-15 md:pt-10 lg:bg-[url(/images/home-hero-vector.svg)]">
+            <header className="relative pt-6 pb-15 md:pt-10">
                 <div className="w-contain flex flex-col">
                     <div className="relative flex items-end justify-center">
                         <p className="absolute left-0 hidden xl:block">
@@ -41,12 +41,8 @@ function App() {
                         </p>
                     </div>
 
-                    <div className="relative mx-auto mt-2 flex w-fit items-center lg:-mt-7">
-                        <img
-                            src="/images/construction-rails.svg"
-                            alt=""
-                            className="max-w-70 rounded-full border-2 border-dashed border-white p-0.5 sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-none"
-                        />
+                    <div className="relative mx-auto mt-2 flex w-4/5 items-center lg:-mt-7 lg:w-fit">
+                        <img src="/images/construction-rails.svg" alt="" />
                         <Link
                             to="/"
                             className={cn(
@@ -73,7 +69,7 @@ function App() {
                             </Button>
                         </DialogTrigger>
 
-                        <DialogContent className="max-h-dvh max-w-full items-start overflow-auto rounded-b-none bg-[#FDFEFE] text-[#171717] sm:max-w-full md:rounded-t-[82px] lg:max-h-[95%] lg:grid-cols-2 lg:place-content-center lg:gap-0 lg:overflow-visible lg:px-20 lg:pt-20 lg:pb-40 lg:**:data-[slot='dialog-close']:hidden">
+                        <DialogContent className="max-h-dvh max-w-full items-start overflow-auto rounded-b-none bg-[#FDFEFE] text-[#171717] sm:max-w-full md:rounded-t-[82px] lg:max-h-[95%] lg:grid-cols-2 lg:place-content-center lg:gap-0 lg:overflow-visible lg:px-20 lg:pt-20 lg:pb-40 lg:**:data-[slot='dialog-close']:hidden min-[100rem]:w-4/5">
                             <DialogHeader className="sr-only">
                                 <DialogTitle>Start Your Project with Us</DialogTitle>
                                 <DialogDescription>
@@ -108,8 +104,6 @@ function App() {
                             </div>
                         </DialogContent>
                     </Dialog>
-
-                    <ScrollDownBadge className="absolute right-10 bottom-10 hidden *:bg-inherit lg:block" />
                 </div>
             </header>
 

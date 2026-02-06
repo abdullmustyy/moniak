@@ -47,7 +47,7 @@ function RouteComponent() {
 
             {/* What we offer */}
             <section className="w-contain flex flex-col gap-20 py-15">
-                <div className="flex flex-col items-center gap-10 lg:flex-row">
+                <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-0">
                     <div className="space-y-6">
                         <h5 className="lg:text-[2.8125rem]">What we offer</h5>
                         <ul className="flex flex-col gap-2 text-sm lg:text-lg">
@@ -61,16 +61,12 @@ function RouteComponent() {
                     </div>
 
                     <div className="relative flex w-fit items-center">
-                        <img
-                            src="/images/construction-rails.svg"
-                            alt=""
-                            className="max-w-70 rounded-full border-2 border-dashed border-white p-0.5 sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-none"
-                        />
+                        <img src="/images/what-we-offer.svg" alt="" />
                         <Link
                             to="/"
                             className={cn(
                                 buttonVariants(),
-                                "absolute right-0 size-14 translate-x-1/2 rounded-full shadow-[0px_3.52px_3.52px_0px_#00000040] sm:size-18 md:size-20 lg:size-25",
+                                "absolute right-0 size-14 rounded-full shadow-[0px_3.52px_3.52px_0px_#00000040] sm:size-18 md:size-20 lg:size-25",
                             )}
                         >
                             <ArrowUpLeft className="size-6 sm:size-7 md:size-8 lg:size-10" />
@@ -89,8 +85,9 @@ function RouteComponent() {
                 </div>
             </section>
 
+            {/* Stats */}
             <section className="bg-[linear-gradient(90deg,rgba(0,0,0,0.68)_1.63%,rgba(106,106,106,0)_48.41%,rgba(0,0,0,0.68)_100%),linear-gradient(0deg,#114B21,#114B21)] py-15 lg:bg-[linear-gradient(90deg,rgba(0,0,0,0.68)_1.35%,rgba(0,0,0,0)_48.72%,rgba(0,0,0,0.68)_100%),linear-gradient(0deg,#114B21,#114B21)]">
-                <div className="w-contain grid grid-cols-2 justify-items-center gap-4 lg:grid-cols-4 lg:gap-0">
+                <div className="w-contain grid grid-cols-2 flex-wrap justify-center gap-10 lg:flex">
                     {stats.map((stat, index) => (
                         <div key={index} className="flex items-center gap-2">
                             <img src={stat.image} alt="" className="size-10 shrink-0 lg:size-auto" />
